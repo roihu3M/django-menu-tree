@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load draw_menu %}
+{% block content %}
+    <a href="/"><h1>main page</h1></a>
+    {% for menu in menus %}
+    <ul>
+        <li><a href='/?menu={{ menu }}&id=0'>{{ menu }}</a></li>
+            {% if menu.id == menu_id %}
+                {% draw_menu menu.id %}
+            {% endif %}
+    </ul>
+    {% endfor %}
+{% endblock %}
